@@ -176,7 +176,8 @@ def moldura(largura: int, altura: int, titulo: str, corpo: str) -> str:
 """
 
 
-def card_estatisticas(d: dict) -> str:
+def corpo_estatisticas(d: dict) -> tuple[str, str, int]:
+    """Devolve (título, corpo, altura mínima) do card de estatísticas."""
     linhas = [
         ("Repositórios públicos", d["repos_publicos"]),
         ("Estrelas recebidas", d["estrelas"]),
@@ -184,6 +185,11 @@ def card_estatisticas(d: dict) -> str:
         ("Seguidores", d["seguidores"]),
         ("No GitHub desde", d["desde"]),
     ]
+
+    # Linha zerada não informa nada e só ocupa espaço — some do card.
+    # O ano de entrada é texto, não contagem, então nunca é filtrado.
+    linhas = [(rotulo, valor) for rotulo, valor in linhas
+              if not (isinstance(valor, int) and valor == 0)]
 
     partes = []
     y = 75
@@ -199,14 +205,16 @@ def card_estatisticas(d: dict) -> str:
         y += 30
 
     titulo = f"Estatísticas de {d['nome']}"
-    return moldura(380, 215, titulo, "\n".join(partes))
+    return titulo, "\n".join(partes), y - 10
 
 
 def formatar_percentual(v: float) -> str:
     return f"{v:.1f}".replace(".", ",")
 
 
-def card_linguagens(d: dict, quantidade: int) -> str:
+def corpo_linguagens(d: dict, quantidade: int) -> tuple[str, str, int]:
+    """Devolve (título, corpo, altura mínima) do card de linguagens."""
+    titulo = "Linguagens mais usadas"
     ordenadas = sorted(d["linguagens"].items(), key=lambda kv: kv[1], reverse=True)
     principais = ordenadas[:quantidade]
     total = sum(v for _, v in principais)
@@ -216,7 +224,7 @@ def card_linguagens(d: dict, quantidade: int) -> str:
             f'  <text x="25" y="75" font-family="{FONTE}" font-size="14"'
             f' fill="{TEMA["texto"]}">Nenhuma linguagem encontrada.</text>'
         )
-        return moldura(380, 120, "Linguagens mais usadas", corpo)
+        return titulo, corpo, 110
 
     partes = []
 
@@ -251,8 +259,7 @@ def card_linguagens(d: dict, quantidade: int) -> str:
         )
         y += 26
 
-    altura = y + 6
-    return moldura(380, altura, "Linguagens mais usadas", "\n".join(partes))
+    return titulo, "\n".join(partes), y - 6
 
 
 # --------------------------------------------------------------------------
@@ -269,10 +276,17 @@ def main() -> int:
     token = os.environ.get("GITHUB_TOKEN") or None
     dados = coletar_dados(args.user, token, args.incluir_forks)
 
+    # Os dois cards ficam lado a lado no README, então precisam ter a mesma
+    # altura. Como o número de linhas varia (linhas zeradas somem, o número de
+    # linguagens muda), calculamos os dois e usamos a maior altura para ambos.
+    titulo_e, corpo_e, altura_e = corpo_estatisticas(dados)
+    titulo_l, corpo_l, altura_l = corpo_linguagens(dados, args.langs)
+    altura = max(altura_e, altura_l)
+
     os.makedirs(args.out, exist_ok=True)
     saidas = {
-        "estatisticas.svg": card_estatisticas(dados),
-        "linguagens.svg": card_linguagens(dados, args.langs),
+        "estatisticas.svg": moldura(380, altura, titulo_e, corpo_e),
+        "linguagens.svg": moldura(380, altura, titulo_l, corpo_l),
     }
     for nome, conteudo in saidas.items():
         caminho = os.path.join(args.out, nome)
