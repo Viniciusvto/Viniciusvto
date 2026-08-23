@@ -11,8 +11,8 @@ Me chamo Vinicius Teixeira, tenho 26 anos e sou de Campinas, interior de São Pa
 ### 📊 Estatísticas
 
 <p align="left">
-  <img alt="Estatísticas do perfil" height="215" src="./assets/estatisticas.svg" />
-  <img alt="Linguagens mais usadas" height="215" src="./assets/linguagens.svg" />
+  <img alt="Estatísticas do perfil" src="./assets/estatisticas.svg" />
+  <img alt="Linguagens mais usadas" src="./assets/linguagens.svg" />
 </p>
 
 <sub>Cards gerados automaticamente por uma GitHub Action e servidos pelo próprio repositório.</sub>
