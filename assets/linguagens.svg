@@ -1,8 +1,8 @@
-<svg width="380" height="262" viewBox="0 0 380 262"
+<svg width="380" height="250" viewBox="0 0 380 250"
      fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
      aria-label="Linguagens mais usadas">
   <title>Linguagens mais usadas</title>
-  <rect x="0.5" y="0.5" width="379" height="261" rx="6"
+  <rect x="0.5" y="0.5" width="379" height="249" rx="6"
         fill="#1a1b27" stroke="#2c2f45"/>
   <text x="25" y="35" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="18" font-weight="600"
         fill="#70a5fd">Linguagens mais usadas</text>
