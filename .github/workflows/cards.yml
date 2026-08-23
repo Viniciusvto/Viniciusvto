@@ -1,0 +1,54 @@
+name: Atualizar cards do perfil
+
+on:
+  # Todo dia às 06:00 UTC (03:00 em Brasília).
+  schedule:
+    - cron: "0 6 * * *"
+  # Permite rodar manualmente pela aba Actions.
+  workflow_dispatch:
+  # Roda também quando o gerador ou este workflow mudam.
+  push:
+    branches: [main]
+    paths:
+      - "scripts/gerar_cards.py"
+      - ".github/workflows/cards.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cards-do-perfil
+  cancel-in-progress: true
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Gerar os cards SVG
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/gerar_cards.py \
+            --user "${{ github.repository_owner }}" \
+            --out assets \
+            --langs 6
+
+      - name: Commitar apenas se algo mudou
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/estatisticas.svg assets/linguagens.svg
+          if git diff --staged --quiet; then
+            echo "Cards inalterados; nada a commitar."
+          else
+            git commit -m "chore: atualiza os cards do perfil"
+            git push
+          fi
