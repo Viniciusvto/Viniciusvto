@@ -127,12 +127,22 @@ def coletar_dados(user: str, token: str | None, incluir_forks: bool) -> dict:
     estrelas = sum(r.get("stargazers_count", 0) for r in proprios)
     forks = sum(r.get("forks_count", 0) for r in proprios)
 
-    # Soma de bytes por linguagem em todos os repositórios considerados.
-    bytes_por_linguagem: dict[str, int] = {}
+    # Peso por linguagem.
+    #
+    # Somar bytes puros distorce muito: um .ipynb embute as imagens de saída em
+    # base64, então um único notebook pesa mais que dezenas de arquivos .py.
+    # Em vez disso, cada repositório contribui com peso 1, dividido entre suas
+    # linguagens na proporção interna daquele repositório. Assim o card reflete
+    # em quantos projetos cada linguagem aparece, não o tamanho dos arquivos.
+    peso_por_linguagem: dict[str, float] = {}
     for r in proprios:
         dados = buscar(f"/repos/{user}/{r['name']}/languages", token)
+        total_repo = sum(dados.values())
+        if total_repo == 0:
+            continue
         for linguagem, quantidade in dados.items():
-            bytes_por_linguagem[linguagem] = bytes_por_linguagem.get(linguagem, 0) + quantidade
+            fracao = quantidade / total_repo
+            peso_por_linguagem[linguagem] = peso_por_linguagem.get(linguagem, 0.0) + fracao
 
     return {
         "nome": perfil.get("name") or perfil.get("login"),
@@ -143,7 +153,7 @@ def coletar_dados(user: str, token: str | None, incluir_forks: bool) -> dict:
         "estrelas": estrelas,
         "forks": forks,
         "desde": (perfil.get("created_at") or "")[:4],
-        "linguagens": bytes_por_linguagem,
+        "linguagens": peso_por_linguagem,
     }
 
 
