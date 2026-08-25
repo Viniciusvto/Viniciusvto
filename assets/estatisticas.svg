@@ -8,7 +8,7 @@
         fill="#70a5fd">Estatísticas de Vinicius Teixeira</text>
   <circle cx="30" cy="70" r="4" fill="#bf91f3"/>
   <text x="46" y="75" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" fill="#38bdae">Repositórios públicos</text>
-  <text x="360" y="75" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" font-weight="700" text-anchor="end" fill="#c0caf5">16</text>
+  <text x="360" y="75" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" font-weight="700" text-anchor="end" fill="#c0caf5">18</text>
   <circle cx="30" cy="100" r="4" fill="#bf91f3"/>
   <text x="46" y="105" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" fill="#38bdae">Estrelas recebidas</text>
   <text x="360" y="105" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="14" font-weight="700" text-anchor="end" fill="#c0caf5">1</text>
