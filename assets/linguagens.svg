@@ -7,29 +7,29 @@
   <text x="25" y="35" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="18" font-weight="600"
         fill="#70a5fd">Linguagens mais usadas</text>
   <g>
-    <rect x="25.00" y="55" width="134.18" height="10" rx="5" fill="#3572A5"/>
-    <rect x="159.18" y="55" width="82.08" height="10" rx="0" fill="#DA5B0B"/>
-    <rect x="241.27" y="55" width="31.65" height="10" rx="0" fill="#f1e05a"/>
-    <rect x="272.92" y="55" width="27.36" height="10" rx="0" fill="#b07219"/>
-    <rect x="300.28" y="55" width="27.36" height="10" rx="0" fill="#178600"/>
-    <rect x="327.64" y="55" width="27.36" height="10" rx="5" fill="#C1F12E"/>
+    <rect x="25.00" y="55" width="137.43" height="10" rx="5" fill="#3572A5"/>
+    <rect x="162.43" y="55" width="80.72" height="10" rx="0" fill="#DA5B0B"/>
+    <rect x="243.15" y="55" width="31.12" height="10" rx="0" fill="#f1e05a"/>
+    <rect x="274.28" y="55" width="26.91" height="10" rx="0" fill="#b07219"/>
+    <rect x="301.18" y="55" width="26.91" height="10" rx="0" fill="#178600"/>
+    <rect x="328.09" y="55" width="26.91" height="10" rx="5" fill="#C1F12E"/>
   </g>
   <circle cx="32" cy="96" r="5" fill="#3572A5"/>
   <text x="46" y="100" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" fill="#38bdae">Python</text>
-  <text x="355" y="100" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">40,7%</text>
+  <text x="355" y="100" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">41,6%</text>
   <circle cx="32" cy="122" r="5" fill="#DA5B0B"/>
   <text x="46" y="126" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" fill="#38bdae">Jupyter Notebook</text>
-  <text x="355" y="126" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">24,9%</text>
+  <text x="355" y="126" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">24,5%</text>
   <circle cx="32" cy="148" r="5" fill="#f1e05a"/>
   <text x="46" y="152" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" fill="#38bdae">JavaScript</text>
-  <text x="355" y="152" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">9,6%</text>
+  <text x="355" y="152" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">9,4%</text>
   <circle cx="32" cy="174" r="5" fill="#b07219"/>
   <text x="46" y="178" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" fill="#38bdae">Java</text>
-  <text x="355" y="178" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">8,3%</text>
+  <text x="355" y="178" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">8,2%</text>
   <circle cx="32" cy="200" r="5" fill="#178600"/>
   <text x="46" y="204" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" fill="#38bdae">C#</text>
-  <text x="355" y="204" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">8,3%</text>
+  <text x="355" y="204" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">8,2%</text>
   <circle cx="32" cy="226" r="5" fill="#C1F12E"/>
   <text x="46" y="230" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" fill="#38bdae">Batchfile</text>
-  <text x="355" y="230" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">8,3%</text>
+  <text x="355" y="230" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif" font-size="13" font-weight="600" text-anchor="end" fill="#c0caf5">8,2%</text>
 </svg>
